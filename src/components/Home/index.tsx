@@ -9,7 +9,9 @@ import { USERS_QUERIES } from "../../GraphQL/Queries";
 
 export default function Home(): React.ReactElement {
 
-    const { error , loading , data } = useQuery(USERS_QUERIES);
+    const { error , loading , data } = useQuery(USERS_QUERIES.userById() , {
+        variables: { userId: "61b23d6a9363a7e86afea153" }
+    });
     
     useEffect(() => {
         console.log(data);
