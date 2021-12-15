@@ -1,36 +1,25 @@
-import React from "react";
+import React , { useEffect } from "react";
 
 import {
-    ApolloClient,
-    InMemoryCache,
-    ApolloProvider,
     useQuery,
     gql
 } from "@apollo/client";
 
+import { USERS_QUERIES } from "../../GraphQL/Queries";
+
 export default function Home(): React.ReactElement {
-    const client = new ApolloClient({
-        uri: 'http://localhost:4000/',
-        cache: new InMemoryCache()
-    })
+
+    const { error , loading , data } = useQuery(USERS_QUERIES);
+    
+    useEffect(() => {
+        console.log(data);
+    } , [data])
+
     return(
         <>
-            <ApolloProvider client={ client }>
-                <>
-                    {
-                        client.query({
-                            query: gql`
-                                query users{
-                                    _id
-                                    name
-                                    email
-                                }
-                            `
-                        })
-                        .then(result => console.log(result))
-                    }
-                </>
-            </ApolloProvider>
+
+         <h1> Hello World </h1>
+         
         </>
     )
 }
