@@ -2,6 +2,9 @@ import React from 'react';
 
 export default function Login(): React.ReactElement {
 
+    function entrar(){
+        alert("Entrar2")
+    }
     
     return(
         <>
@@ -11,7 +14,7 @@ export default function Login(): React.ReactElement {
             Password
             <input type="password" />
 
-            <button onClick={() => alert("Entrar")}> LOGin </button>
+            <button onClick={() => entrar()}> LOGin </button>
         </>
     )
 }
