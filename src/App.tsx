@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./components/Home";
+import Login from "./components/Login";
 
 import {
     ApolloClient,
@@ -18,7 +18,7 @@ export default function App(): React.ReactElement{
     return (
         <>
             <ApolloProvider client = { client }>
-                <Home />
+                <Login />
             </ApolloProvider>
         </>
     )
