@@ -2,13 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './context/auth';
+
+import { client } from './GraphQL/Client';
+
+import { ApolloProvider } from "@apollo/client";
 
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <ApolloProvider client = {client}>
+      <AuthProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </AuthProvider>
+    </ApolloProvider>,
+
+  
   document.getElementById('root')
 );
 
