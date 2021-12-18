@@ -45,7 +45,17 @@ export function AuthProvider({ children }: Props): React.ReactElement {
         }
     })
 
+    // setUser(data);
+
   };
+
+  useEffect(() => {
+    if(data === undefined){
+      console.log("Não existe");
+    }else{
+      console.log(data.authenticate.user);
+    };
+  } , [data]);
 
     /*try {
       response = await authApi
